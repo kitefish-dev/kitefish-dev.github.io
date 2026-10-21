@@ -1,6 +1,6 @@
 # kitefish.dev
 
-Website for Kitefish, an independent card game studio. Plain static HTML and CSS (no build step), hosted on GitHub Pages at <https://kitefish-dev.github.io>.
+Website for Kitefish, an independent card game studio. Plain static HTML and CSS (no build step), hosted on GitHub Pages at <https://kitefish.dev> (custom domain on the `kitefish-dev.github.io` repo; the `CNAME` file sets it).
 
 ## Files
 
@@ -23,7 +23,10 @@ In `index.html`, find the `<div class="games">` block. Copy the commented templa
 
 ## Custom domain (kitefish.dev)
 
-The domain's DNS is at Spaceship. To serve the site at kitefish.dev:
+The domain's DNS is at Spaceship and points to GitHub Pages:
 
-1. At Spaceship, add `A` records for `@` pointing to `185.199.108.153`, `185.199.109.153`, `185.199.110.153` and `185.199.111.153`, and a `CNAME` record for `www` pointing to `kitefish-dev.github.io`. Leave the existing MX records for email alone.
-2. In the repo's **Settings > Pages**, enter `kitefish.dev` as the custom domain (this adds a `CNAME` file) and turn on **Enforce HTTPS** once the certificate is issued.
+- `A` records for `@`: `185.199.108.153`, `185.199.109.153`, `185.199.110.153`, `185.199.111.153`
+- `CNAME` record for `www`: `kitefish-dev.github.io`
+- The `MX` records are for email (Spacemail); leave them alone.
+
+The custom domain is set in the repo's **Settings > Pages** and saved in the `CNAME` file. Don't delete that file, or the site falls back to the github.io address. HTTPS is enforced, and GitHub renews the certificate automatically. `.dev` domains only work over HTTPS, so the site is unreachable if the certificate ever lapses.
