@@ -1,6 +1,6 @@
 # kitefish.dev
 
-Website for Kitefish, an independent card game studio. Plain static HTML and CSS (no build step), hosted on GitHub Pages at <https://kitefish.dev> (custom domain on the `kitefish-dev.github.io` repo; the `CNAME` file sets it).
+Website for Kitefish, an independent game development studio. Plain static HTML and CSS (no build step), hosted on GitHub Pages at <https://kitefish.dev> (custom domain on the `kitefish-dev.github.io` repo; the `CNAME` file sets it).
 
 ## Files
 
