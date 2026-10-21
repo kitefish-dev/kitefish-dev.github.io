@@ -2,242 +2,253 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Kitefish — Independent Game Studio</title>
-  <meta name="description" content="Kitefish is an independent game development studio crafting playful mobile and PC games.">
-  <meta property="og:title" content="Kitefish — Independent Game Studio">
-  <meta property="og:description" content="Independent game development studio crafting playful mobile and PC games.">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Kitefish | Independent Card Game Studio</title>
+  <meta name="description" content="Kitefish is an independent game studio making Klondike Solitaire and other classic card games for everyone. Free to play on Android.">
+  <meta name="theme-color" content="#16213e">
   <meta property="og:type" content="website">
-  <meta property="og:image" content="https://kitefish-dev.github.io/images/logo.png">
-  <meta name="theme-color" content="#0b1424">
+  <meta property="og:site_name" content="Kitefish">
+  <meta property="og:title" content="Kitefish | Independent Card Game Studio">
+  <meta property="og:description" content="Classic card games, made to feel brand new. Free to play on Android.">
+  <meta property="og:url" content="https://kitefish-dev.github.io/">
+  <meta property="og:image" content="https://kitefish-dev.github.io/images/og.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Kitefish logo: a pink diamond-shaped fish with a sky-blue tail on a yellow background">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image:alt" content="Kitefish logo: a pink diamond-shaped fish with a sky-blue tail on a yellow background">
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="images/logo.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Inter:wght@400;500&display=swap" rel="stylesheet">
-  <style>
-    :root {
-      --bg: #0b1424;
-      --bg-2: #111d33;
-      --card: #15233d;
-      --line: #22345a;
-      --text: #e8eefb;
-      --muted: #9aa8c4;
-      --coral: #ff8a5c;
-      --pink: #ff5c8a;
-      --aqua: #5ce1e6;
-      --radius: 18px;
-      --max: 1080px;
-    }
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; }
-    body {
-      font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
-      background: var(--bg);
-      color: var(--text);
-      line-height: 1.6;
-      -webkit-font-smoothing: antialiased;
-    }
-    a { color: inherit; }
-    h1, h2, h3, .brand { font-family: "Space Grotesk", Inter, sans-serif; letter-spacing: -0.02em; }
-    .wrap { max-width: var(--max); margin: 0 auto; padding: 0 24px; }
-
-    /* Nav */
-    header {
-      position: sticky; top: 0; z-index: 10;
-      background: rgba(11, 20, 36, 0.75);
-      backdrop-filter: blur(12px);
-      border-bottom: 1px solid rgba(34, 52, 90, 0.6);
-    }
-    nav { display: flex; align-items: center; justify-content: space-between; height: 68px; }
-    .brand { display: flex; align-items: center; gap: 10px; font-weight: 700; font-size: 1.25rem; text-decoration: none; }
-    .brand img { width: 30px; height: 30px; }
-    nav ul { display: flex; gap: 28px; list-style: none; }
-    nav ul a { text-decoration: none; color: var(--muted); font-size: 0.95rem; transition: color .2s; }
-    nav ul a:hover { color: var(--text); }
-
-    /* Hero */
-    .hero { position: relative; overflow: hidden; padding: 120px 0 110px; text-align: center; }
-    .hero::before {
-      content: ""; position: absolute; inset: -40% -20% auto; height: 120%;
-      background:
-        radial-gradient(40% 50% at 30% 40%, rgba(255, 138, 92, 0.22), transparent 70%),
-        radial-gradient(35% 45% at 72% 55%, rgba(92, 225, 230, 0.16), transparent 70%);
-      pointer-events: none;
-    }
-    .hero .logo { width: 96px; height: 96px; margin-bottom: 28px; animation: float 6s ease-in-out infinite; }
-    @keyframes float { 0%, 100% { transform: translateY(0) rotate(-4deg); } 50% { transform: translateY(-12px) rotate(4deg); } }
-    .hero h1 { font-size: clamp(2.6rem, 7vw, 4.6rem); line-height: 1.05; margin-bottom: 20px; position: relative; }
-    .grad { background: linear-gradient(90deg, var(--coral), var(--pink)); -webkit-background-clip: text; background-clip: text; color: transparent; }
-    .hero p { color: var(--muted); font-size: 1.15rem; max-width: 560px; margin: 0 auto 36px; position: relative; }
-    .btns { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; position: relative; }
-    .btn {
-      display: inline-flex; align-items: center; gap: 8px;
-      padding: 13px 24px; border-radius: 999px; font-weight: 500; text-decoration: none;
-      transition: transform .2s, box-shadow .2s, background .2s;
-    }
-    .btn-primary { background: linear-gradient(90deg, var(--coral), var(--pink)); color: #1a0d14; }
-    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 10px 30px rgba(255, 92, 138, 0.3); }
-    .btn-ghost { border: 1px solid var(--line); color: var(--text); }
-    .btn-ghost:hover { background: var(--bg-2); }
-
-    /* Sections */
-    section { padding: 90px 0; }
-    .eyebrow { color: var(--aqua); font-size: 0.85rem; font-weight: 500; text-transform: uppercase; letter-spacing: 0.14em; margin-bottom: 10px; }
-    h2 { font-size: clamp(1.9rem, 4vw, 2.6rem); margin-bottom: 16px; }
-    .lead { color: var(--muted); max-width: 620px; font-size: 1.05rem; }
-    .alt { background: var(--bg-2); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
-
-    /* Games */
-    .games { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 22px; margin-top: 44px; }
-    .game {
-      background: var(--card); border: 1px solid var(--line); border-radius: var(--radius);
-      overflow: hidden; transition: transform .25s, border-color .25s;
-    }
-    .game:hover { transform: translateY(-4px); border-color: #34508a; }
-    .game .art { aspect-ratio: 16 / 9; background: #0e1a2e center / cover no-repeat; display: grid; place-items: center; }
-    .game .body { padding: 20px 22px 24px; }
-    .game h3 { font-size: 1.2rem; margin-bottom: 6px; }
-    .game p { color: var(--muted); font-size: 0.95rem; margin-bottom: 16px; }
-    .tag { display: inline-block; font-size: 0.78rem; padding: 4px 10px; border-radius: 999px; background: rgba(92, 225, 230, 0.12); color: var(--aqua); }
-    .game.soon { border-style: dashed; }
-    .game.soon .art { background: repeating-linear-gradient(135deg, #12203a 0 14px, #0f1b31 14px 28px); }
-    .game.soon .art img { width: 64px; opacity: .5; }
-
-    /* About */
-    .pillars { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 22px; margin-top: 44px; }
-    .pillar { padding: 26px; border-radius: var(--radius); background: var(--card); border: 1px solid var(--line); }
-    .pillar .icon { font-size: 1.6rem; margin-bottom: 12px; }
-    .pillar h3 { font-size: 1.1rem; margin-bottom: 6px; }
-    .pillar p { color: var(--muted); font-size: 0.95rem; }
-
-    /* Contact */
-    .contact { text-align: center; }
-    .contact .lead { margin: 0 auto 32px; }
-    .email { font-family: "Space Grotesk", sans-serif; font-size: clamp(1.4rem, 4vw, 2.2rem); font-weight: 700; text-decoration: none; border-bottom: 2px solid var(--coral); padding-bottom: 2px; }
-    .email:hover { color: var(--coral); }
-
-    footer { border-top: 1px solid var(--line); padding: 32px 0; color: var(--muted); font-size: 0.9rem; }
-    footer .wrap { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 14px; }
-    footer .links { display: flex; gap: 20px; }
-    footer a { text-decoration: none; }
-    footer a:hover { color: var(--text); }
-
-    @media (max-width: 640px) {
-      .wrap { padding: 0 16px; }
-      nav ul { gap: 18px; }
-      nav ul li.hide-sm { display: none; }
-      .hero { padding: 80px 0 70px; }
-      section { padding: 64px 0; }
-    }
-    @media (prefers-reduced-motion: reduce) {
-      * { animation: none !important; transition: none !important; }
-      html { scroll-behavior: auto; }
-    }
-  </style>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lilita+One&family=Nunito:wght@400;600;700;800&display=swap">
+  <link rel="stylesheet" href="styles.css">
+  <script src="site.js" defer></script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Kitefish",
+    "url": "https://kitefish-dev.github.io/",
+    "logo": "https://kitefish-dev.github.io/images/logo.png",
+    "email": "info@kitefish.dev",
+    "sameAs": ["https://github.com/kitefish-dev"]
+  }
+  </script>
 </head>
 <body>
-  <header>
-    <nav class="wrap">
-      <a class="brand" href="#top"><img src="favicon.svg" alt="">kitefish</a>
-      <ul>
-        <li><a href="#games">Games</a></li>
-        <li class="hide-sm"><a href="#about">About</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
-    </nav>
+  <a class="skip" href="#main">Skip to content</a>
+
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  </svg>
+
+  <header class="site-header">
+    <div class="wrap bar">
+      <a class="brand" href="./" aria-label="Kitefish home">
+        <span class="brand-mark"><img src="favicon.svg" alt="" width="38" height="38"></span>
+        kitefish
+      </a>
+      <nav class="nav" aria-label="Main">
+        <a href="#games">Games</a>
+        <a href="#studio">Studio</a>
+        <a class="btn btn-sun btn-sm" href="#contact">Contact us</a>
+      </nav>
+      <button class="menu-btn" type="button" popovertarget="menu" aria-label="Open menu">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/></svg>
+      </button>
+    </div>
+    <span class="progress" aria-hidden="true"></span>
   </header>
 
-  <main id="top">
+  <nav id="menu" class="menu" popover aria-label="Menu">
+    <a href="#games">Games <svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
+    <a href="#studio">Studio <svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
+    <a href="#contact">Contact us <svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
+  </nav>
+
+  <main id="main">
     <section class="hero">
-      <div class="wrap">
-        <img class="logo" src="favicon.svg" alt="Kitefish logo">
-        <h1>Games that <span class="grad">fly</span><br>and <span class="grad">swim</span>.</h1>
-        <p>Kitefish is an independent game studio building small, playful, polished games for mobile and beyond.</p>
-        <div class="btns">
-          <a class="btn btn-primary" href="#games">See our games</a>
-          <a class="btn btn-ghost" href="mailto:info@kitefish.dev">Get in touch</a>
+      <div class="hero-bg" aria-hidden="true"></div>
+      <div class="wrap hero-grid">
+        <div class="hero-copy">
+          <span class="hero-pill rise" style="--i:0"><img src="favicon.svg" alt="">Independent card game studio</span>
+          <h1 class="rise" style="--i:1">Classic card games, made to feel <span class="hl">brand&nbsp;new.</span></h1>
+          <p class="lede rise" style="--i:2">Kitefish is an independent game studio making Klondike Solitaire and other timeless card games for everyone. Free to play, easy to learn and polished down to the last detail.</p>
+          <div class="actions rise" style="--i:3">
+            <a class="btn btn-sun" href="#games">See our games <svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
+            <a class="btn btn-line" href="#contact">Get in touch</a>
+          </div>
+          <ul class="checks rise" style="--i:4">
+            <li><svg aria-hidden="true"><use href="#i-check"/></svg>Free to play</li>
+            <li><svg aria-hidden="true"><use href="#i-check"/></svg>Made for everyone</li>
+            <li><svg aria-hidden="true"><use href="#i-check"/></svg>Android first</li>
+          </ul>
+        </div>
+
+        <div class="hero-art" aria-hidden="true">
+          <div class="burst"></div>
+          <div class="sticker-back"></div>
+          <div class="sticker"><img src="favicon.svg" alt=""></div>
+          <span class="confetti" style="--s:9cqi; --c:var(--sky); top:4%; right:12%; --d:5s"></span>
+          <span class="confetti" style="--s:6cqi; --c:var(--sun); top:44%; right:-1%; --d:7s"></span>
+          <span class="confetti" style="--s:11cqi; --c:var(--pink); bottom:3%; right:20%; --d:6s"></span>
+          <span class="confetti" style="--s:7cqi; --c:var(--sun); bottom:12%; left:3%; --d:8s"></span>
+          <span class="confetti" style="--s:5cqi; --c:var(--white); top:50%; left:-2%; --d:5.5s"></span>
+          <span class="badge-free">Free<br>to play</span>
         </div>
       </div>
     </section>
 
-    <section id="games" class="alt">
+    <div class="ticker">
+      <div class="track" aria-hidden="true">
+        <ul><li>Card games</li><li>Free to play</li><li>Made for everyone</li><li>Android first</li><li>Independent studio</li><li>Polished to the last detail</li></ul>
+        <ul><li>Card games</li><li>Free to play</li><li>Made for everyone</li><li>Android first</li><li>Independent studio</li><li>Polished to the last detail</li></ul>
+        <ul><li>Card games</li><li>Free to play</li><li>Made for everyone</li><li>Android first</li><li>Independent studio</li><li>Polished to the last detail</li></ul>
+        <ul><li>Card games</li><li>Free to play</li><li>Made for everyone</li><li>Android first</li><li>Independent studio</li><li>Polished to the last detail</li></ul>
+      </div>
+      <label class="motion-toggle"><input type="checkbox" id="pause-motion"> Pause animations</label>
+    </div>
+
+    <section id="games" class="section">
       <div class="wrap">
-        <div class="eyebrow">Our games</div>
-        <h2>What we're making</h2>
-        <p class="lead">Our first titles are in development. Check back soon, or follow along on GitHub.</p>
+        <header class="section-head reveal">
+          <p class="eyebrow">Our games</p>
+          <h2>Card games, done properly</h2>
+          <p>Our first game is Klondike Solitaire, the classic patience game. More card games will follow, each one listed here when it launches on Google Play.</p>
+        </header>
 
         <div class="games">
           <!--
-            To add a game, copy this block and fill it in:
+            To add a released game, copy this block, swap in the game's icon and
+            replace the "Coming soon" span with its Google Play link:
 
-            <article class="game">
-              <div class="art" style="background-image:url('images/my-game.png')"></div>
-              <div class="body">
-                <h3>My Game</h3>
-                <p>One or two sentences about the game.</p>
-                <a class="btn btn-primary" href="https://play.google.com/store/apps/details?id=dev.kitefish.mygame">Get it on Google Play</a>
+            <article class="game reveal">
+              <div class="game-body">
+                <div class="app-icon"><img src="images/games/my-game.png" alt=""></div>
+                <div class="game-info">
+                  <div class="pills"><span class="pill">Out now</span><span class="pill">Android</span></div>
+                  <h3>My Game</h3>
+                  <p>One or two sentences about the game.</p>
+                  <a class="btn btn-sun" href="https://play.google.com/store/apps/details?id=dev.kitefish.mygame">Get it on Google Play</a>
+                </div>
               </div>
             </article>
           -->
-          <article class="game soon">
-            <div class="art"><img src="favicon.svg" alt=""></div>
-            <div class="body">
-              <h3>First title</h3>
-              <p>Something new is taking shape in the studio. Announcement coming soon.</p>
-              <span class="tag">In development</span>
+          <article class="game reveal">
+            <div class="game-body">
+              <div class="app-icon" style="--tint: var(--sky)"><img src="favicon.svg" alt=""></div>
+              <div class="game-info">
+                <div class="pills"><span class="pill live">In development</span><span class="pill">Android</span></div>
+                <h3>Klondike Solitaire</h3>
+                <p>The classic solitaire everyone knows, rebuilt with smooth controls, clear cards and a calm, modern look.</p>
+                <dl class="specs">
+                  <div><dt>Genre</dt><dd>Card, solitaire</dd></div>
+                  <div><dt>Price</dt><dd>Free to play</dd></div>
+                  <div><dt>Release</dt><dd>Coming soon</dd></div>
+                </dl>
+              </div>
+            </div>
+          </article>
+
+          <article class="game reveal">
+            <div class="game-body">
+              <div class="app-icon" style="--tint: var(--pink)" aria-hidden="true">?</div>
+              <div class="game-info">
+                <div class="pills"><span class="pill">Planned</span></div>
+                <h3>More card games</h3>
+                <p>More classic solitaire and card games are planned after Klondike. We will add each one here as it launches.</p>
+                <dl class="specs">
+                  <div><dt>Genre</dt><dd>Card games</dd></div>
+                  <div><dt>Price</dt><dd>Free to play</dd></div>
+                  <div><dt>Release</dt><dd>To be announced</dd></div>
+                </dl>
+              </div>
             </div>
           </article>
         </div>
       </div>
     </section>
 
-    <section id="about">
+    <section id="studio" class="section studio">
       <div class="wrap">
-        <div class="eyebrow">About</div>
-        <h2>A small studio with big ideas</h2>
-        <p class="lead">We believe great games are simple to pick up, satisfying to master, and respectful of your time and privacy.</p>
+        <header class="section-head reveal">
+          <p class="eyebrow">Studio</p>
+          <h2>Small studio, big on polish</h2>
+          <p>We keep the team small and the scope focused, so every game gets the care players notice in the first few seconds.</p>
+        </header>
 
-        <div class="pillars">
-          <div class="pillar">
-            <div class="icon">🪁</div>
-            <h3>Playful</h3>
-            <p>Tight mechanics and charming worlds that make you smile.</p>
-          </div>
-          <div class="pillar">
-            <div class="icon">🐟</div>
-            <h3>Polished</h3>
-            <p>Small in scope, big on care. Every detail is tuned until it feels right.</p>
-          </div>
-          <div class="pillar">
-            <div class="icon">🤝</div>
-            <h3>Fair</h3>
-            <p>No dark patterns. Honest games built for players, not against them.</p>
-          </div>
+        <div class="bento-wrap reveal">
+          <ul class="bento">
+            <li class="tile wide">
+              <span class="ico"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="9" cy="8" r="3.5"/><path d="M2.5 20c.8-3.6 3.4-5.5 6.5-5.5s5.7 1.9 6.5 5.5"/><circle cx="17" cy="9" r="2.5"/><path d="M16.5 14.6c2.6.2 4.4 1.9 5 5.4"/></svg></span>
+              <h3>Made for everyone</h3>
+              <p>Clear visuals, readable text and simple controls, so anyone can pick up our games and play, whether it is their first game of solitaire or their thousandth.</p>
+            </li>
+            <li class="tile" style="--tint: var(--pink)">
+              <span class="ico"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="8" width="18" height="5" rx="1"/><path d="M5 13v8h14v-8M12 8v13M12 8c-1.5-4-5-4-5-2s3 2 5 2c2 0 5 0 5-2s-3.5-2-5 2"/></svg></span>
+              <h3>Fair free-to-play</h3>
+              <p>Our games are free to play. Ads and purchases stay respectful: no pay-to-win, no tricks and no surprise charges.</p>
+            </li>
+            <li class="tile" style="--tint: var(--sky)">
+              <span class="ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v4M12 17v4M3 12h4M17 12h4M6 6l2.5 2.5M15.5 15.5 18 18M6 18l2.5-2.5M15.5 8.5 18 6"/></svg></span>
+              <h3>Polished feel</h3>
+              <p>Every tap, drag and animation is tuned until it feels just right.</p>
+            </li>
+            <li class="tile">
+              <span class="ico"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="6" y="2.5" width="12" height="19" rx="3"/><path d="M10.5 18.5h3"/></svg></span>
+              <h3>Light on your phone</h3>
+              <p>Small downloads that run smoothly on older phones and go easy on your battery.</p>
+            </li>
+            <li class="tile" style="--tint: var(--pink)">
+              <span class="ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3 4.5 6v5.5c0 4.6 3.2 8.4 7.5 9.5 4.3-1.1 7.5-4.9 7.5-9.5V6z"/><path d="m8.8 12 2.2 2.2 4.3-4.4"/></svg></span>
+              <h3>Privacy first</h3>
+              <p>We collect as little data as possible and explain clearly what each game uses and why.</p>
+            </li>
+          </ul>
         </div>
       </div>
     </section>
 
-    <section id="contact" class="alt contact">
-      <div class="wrap">
-        <div class="eyebrow">Contact</div>
-        <h2>Say hello</h2>
-        <p class="lead">Questions, feedback, support or partnerships: we'd love to hear from you.</p>
-        <a class="email" href="mailto:info@kitefish.dev">info@kitefish.dev</a>
+    <section id="contact" class="section contact">
+      <div class="wrap contact-inner">
+        <div class="contact-copy reveal">
+          <p class="eyebrow">Contact</p>
+          <h2>Say hello.</h2>
+          <p>Questions, feedback, partnerships or player support. We read every email and reply as soon as we can.</p>
+          <div class="email-card">
+            <a class="email" id="email" href="mailto:info@kitefish.dev">info@kitefish.dev</a>
+            <button class="btn btn-pink btn-sm" type="button" data-copy="info@kitefish.dev" data-target="#email" data-status="#copy-status" hidden>Copy</button>
+            <span id="copy-status" class="visually-hidden" role="status"></span>
+          </div>
+          <div class="contact-links">
+            <a href="https://github.com/kitefish-dev">GitHub</a>
+            <a href="privacy.html">Privacy policy</a>
+          </div>
+        </div>
+        <div class="contact-art" aria-hidden="true">
+          <div class="sticker"><img src="favicon.svg" alt=""></div>
+        </div>
       </div>
     </section>
   </main>
 
-  <footer>
-    <div class="wrap">
-      <span>&copy; <span id="year">2026</span> Kitefish</span>
-      <div class="links">
-        <a href="https://github.com/kitefish-dev">GitHub</a>
+  <footer class="site-footer">
+    <div class="wrap footer-grid">
+      <a class="brand" href="./" aria-label="Kitefish home">
+        <span class="brand-mark"><img src="favicon.svg" alt="" width="38" height="38"></span>
+        kitefish
+      </a>
+      <nav class="footer-links" aria-label="Footer">
+        <a href="#games">Games</a>
+        <a href="#studio">Studio</a>
         <a href="privacy.html">Privacy</a>
+        <a href="https://github.com/kitefish-dev">GitHub</a>
         <a href="mailto:info@kitefish.dev">Email</a>
-      </div>
+      </nav>
+      <p class="fine"><span>&copy; <span data-year>2026</span> Kitefish. All rights reserved.</span><span>Independent card game studio</span></p>
     </div>
   </footer>
-
-  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
 </body>
 </html>

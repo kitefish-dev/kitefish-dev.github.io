@@ -1,28 +1,29 @@
 # kitefish.dev
 
-Website for Kitefish, an independent game studio. Plain static HTML, hosted on GitHub Pages.
+Website for Kitefish, an independent card game studio. Plain static HTML and CSS (no build step), hosted on GitHub Pages at <https://kitefish-dev.github.io>.
 
 ## Files
 
-- `index.html`: the one-page site (games, about, contact)
-- `privacy.html`: privacy policy, linkable from Google Play listings
-- `favicon.svg`: logo / favicon
+- `index.html`: the one-page site (hero, games, studio, contact)
+- `privacy.html`: privacy policy, linked from Google Play listings
+- `styles.css`: shared styles (cascade layers, nesting, container queries, scroll-driven animations, popover menu)
+- `site.js`: small enhancements (copy email button, footer year, closing the mobile menu)
+- `favicon.svg`: the logo mark
+- `images/logo.png`: 512 × 512 app-icon version of the mark (GitHub avatar, Google Play developer icon)
+- `images/mark.png`: 1024 × 1024 transparent mark
+- `images/og.png`: 1200 × 630 social preview image
 
-## Publish on GitHub Pages
+## Brand
 
-1. Create a public repo named `kitefish-dev.github.io` in the `kitefish-dev` organisation.
-2. Push these files to the `main` branch.
-3. In the repo, go to **Settings > Pages**, set **Source** to *Deploy from a branch*, branch `main`, folder `/ (root)`.
-4. The site goes live at <https://kitefish-dev.github.io>.
-
-### Custom domain (kitefish.dev)
-
-1. Add a file named `CNAME` containing `kitefish.dev`.
-2. At your DNS provider, add `A` records for `kitefish.dev` pointing to
-   `185.199.108.153`, `185.199.109.153`, `185.199.110.153`, `185.199.111.153`,
-   and a `CNAME` record for `www` pointing to `kitefish-dev.github.io`.
-3. In **Settings > Pages**, enter `kitefish.dev` as the custom domain and enable **Enforce HTTPS**.
+"Sticker Pop": sunshine `#FFD23F`, bubblegum `#FF5C93`, sky `#3DB8FF`, navy outline `#16213E`, white. Display type is Lilita One and body type is Nunito. Elements get a 3px navy outline and a solid navy drop shadow, like die-cut stickers.
 
 ## Adding a game
 
-In `index.html`, find the `<div class="games">` block. Copy the commented template inside it, fill in the title, description, image and Google Play link, and remove the "First title" placeholder card when you no longer need it. Put screenshots in an `images/` folder.
+In `index.html`, find the `<div class="games">` block. Copy the commented template inside it, put the game's 512 × 512 icon in `images/games/`, fill in the name and description, and link to the game's Google Play page.
+
+## Custom domain (kitefish.dev)
+
+The domain's DNS is at Spaceship. To serve the site at kitefish.dev:
+
+1. At Spaceship, add `A` records for `@` pointing to `185.199.108.153`, `185.199.109.153`, `185.199.110.153` and `185.199.111.153`, and a `CNAME` record for `www` pointing to `kitefish-dev.github.io`. Leave the existing MX records for email alone.
+2. In the repo's **Settings > Pages**, enter `kitefish.dev` as the custom domain (this adds a `CNAME` file) and turn on **Enforce HTTPS** once the certificate is issued.
